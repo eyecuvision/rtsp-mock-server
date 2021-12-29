@@ -1,0 +1,34 @@
+version: "2.3"
+
+services:
+  rtsp_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - RTSP_PROTOCOLS=tcp
+    networks:
+      lan:
+        ipv4_address: 192.168.0.89
+    ports:
+      - 554:8554
+      - 1935:1935
+      - 8888:8888
+
+    volumes:
+      - content:/var/content
+
+volumes:
+  content:
+
+
+networks:
+  lan:
+    name: lan
+    driver: macvlan
+    driver_opts:
+      parent: eth0 
+    ipam:
+      config:
+        - subnet: 192.168.0.0/24 
+

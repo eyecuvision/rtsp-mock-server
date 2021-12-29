@@ -1,4 +1,4 @@
-generate_yaml_content = lambda username,password,route,ip_address,port,content_name : f"""
+generate_yaml_content = lambda username,password,route,ip_address,port,content_name,buffer_size=8192 : f"""
 
 
 logLevel: info
@@ -7,7 +7,7 @@ logFile: rtsp-simple-server.log
 
 readTimeout: 10s
 writeTimeout: 10s
-readBufferCount: 2048
+readBufferCount: {buffer_size}
 
 
 externalAuthenticationURL:
@@ -40,7 +40,7 @@ serverKey: server.key
 serverCert: server.crt
 
 authMethods: [basic, digest]
-readBufferSize: 2048
+readBufferSize: {buffer_size}
 
 
 rtmpDisable: no
@@ -85,7 +85,7 @@ paths:
 
 
 
-        runOnInit: ffmpeg -re -stream_loop -1 -i /var/content/{content_name} -c copy -f rtsp -rtsp_transport tcp rtsp://{ip_address}:{port}{route}
+        runOnInit: ffmpeg -re -stream_loop -1 -i ./video.mp4 -c copy -f rtsp -rtsp_transport tcp rtsp://{ip_address}:{port}{route}
         runOnInitRestart: yes
 
         runOnDemand:

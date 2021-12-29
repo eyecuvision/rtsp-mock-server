@@ -7,7 +7,7 @@ logFile: rtsp-simple-server.log
 
 readTimeout: 10s
 writeTimeout: 10s
-readBufferCount: 2048
+readBufferCount: 8192
 
 
 externalAuthenticationURL:
@@ -40,7 +40,7 @@ serverKey: server.key
 serverCert: server.crt
 
 authMethods: [basic, digest]
-readBufferSize: 2048
+readBufferSize: 8192
 
 
 rtmpDisable: no
@@ -85,7 +85,7 @@ paths:
 
 
 
-        runOnInit: ffmpeg -re -stream_loop -1 -i /var/content/test.mp4 -c copy -f rtsp -rtsp_transport tcp rtsp://192.168.0.89:554/Channels/Streaming/101
+        runOnInit: ffmpeg -re -stream_loop -1 -i ./video.mp4 -c copy -f rtsp -rtsp_transport tcp rtsp://192.168.0.89:554/video
         runOnInitRestart: yes
 
         runOnDemand:

@@ -1,3 +1,4 @@
+import os
 generate_docker_compose = lambda ip_address,subnet,port : f"""version: "2.3"
 
 services:
@@ -15,11 +16,7 @@ services:
       - 1935:1935
       - 8888:8888
 
-    volumes:
-      - content:/var/content
 
-volumes:
-  content:
 
 
 networks:

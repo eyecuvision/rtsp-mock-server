@@ -2,6 +2,7 @@ version: "2.3"
 
 services:
   rtsp_server:
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile

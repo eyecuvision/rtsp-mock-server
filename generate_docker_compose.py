@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    privileged: true
     environment:
       - RTSP_PROTOCOLS=tcp
     networks:

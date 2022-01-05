@@ -34,15 +34,6 @@ install_prereqs(){
 		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 	fi
 	
-	check_if_installed amazon-cloudwatch-agent
-	is_cloudwatch_agent_installed=$?
-	if [[ is_cloudwatch_agent_installed -eq 0 ]]; then
-		wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/arm64/latest/amazon-cloudwatch-agent.deb
-		sudo dpkg -i amazon-cloudwatch-agent.deb 
-		rm amazon-cloudwatch-agent.deb 
-	fi
-	
-
 }
 
 install_docker(){

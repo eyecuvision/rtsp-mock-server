@@ -1,3 +1,17 @@
+#!/bin/bash
+
+check_if_installed(){
+    REQUIRED_PKG=$1
+    PKG_OK=$(dpkg-query -W -f='${Status}' $REQUIRED_PKG 2>/dev/null | grep -c "ok installed")
+	if [[ $PKG_OK -eq 1 ]]; then
+		echo "$REQUIRED_PKG is already installed."
+		return 1
+	else 
+		return 0
+	fi
+}
+
+
 install_prereqs(){
 	sudo apt-get -y update 
 	sudo apt-get -y upgrade 

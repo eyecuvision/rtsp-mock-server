@@ -11,5 +11,5 @@ RUN go mod download
 
 
 COPY ./rtsp-simple-server.yml ./
-
+COPY video.mp4 /var/content/
 CMD ["stdbuf","-oL","go","run","."]

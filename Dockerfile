@@ -12,7 +12,7 @@ RUN go mod download
 
 COPY ./rtsp-simple-server.yml ./
 WORKDIR /var/content
-COPY ./video.mp4 ./video.mp4
+COPY ./video.mp4 ./
 
 WORKDIR /usr/src/server
 CMD ["stdbuf","-oL","go","run","."]

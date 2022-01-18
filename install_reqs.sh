@@ -102,6 +102,7 @@ install_server(){
 
 
 
-install_prereqs
-install_docker
-python3 -m pip install -r requirements.txt
+# install_prereqs
+# install_docker
+# python3 -m pip install -r requirements.txt
+install_server

@@ -85,7 +85,7 @@ paths:
 
 
 
-        runOnInit: ffmpeg -re -stream_loop -1 -i /var/content/{content_name} -c copy -f rtsp -rtsp_transport tcp rtsp://{ip_address}:{port}{route}
+        runOnInit: ffmpeg -re -stream_loop -1 -i /var/content/{content_name} -c copy -f rtsp -rtsp_transport tcp rtsp://{ip_address}:{port}/video
         runOnInitRestart: yes
 
         runOnDemand:
